@@ -10,4 +10,6 @@
 
 {#if $page.data.user.role === 'ADMIN'}
 	<p>You have admin privileges.</p>
+{:else}
+	<p>You do not have admin privileges.</p>
 {/if}

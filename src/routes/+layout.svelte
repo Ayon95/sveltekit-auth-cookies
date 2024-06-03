@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
 	import '../styles/app.css';
 	import { page } from '$app/stores';
 </script>
@@ -14,7 +15,7 @@
 	{:else}
 		<a href="/admin">Admin</a>
 
-		<form class="logout" action="/logout" method="post">
+		<form class="logout" action="/logout" method="post" use:enhance>
 			<button type="submit">Log out</button>
 		</form>
 	{/if}

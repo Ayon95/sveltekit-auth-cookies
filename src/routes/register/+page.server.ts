@@ -3,7 +3,11 @@ import type { Action, Actions, PageServerLoad } from './$types';
 import { db } from '$lib/database';
 import bcrypt from 'bcrypt';
 
-export const load: PageServerLoad = async () => {};
+export const load: PageServerLoad = ({ locals }) => {
+	if (locals.user) {
+		throw redirect(303, '/');
+	}
+};
 
 enum Roles {
 	ADMIN = 'ADMIN',

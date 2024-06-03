@@ -3,7 +3,11 @@ import type { Action, Actions, PageServerLoad } from './$types';
 import bcrypt from 'bcrypt';
 import { db } from '$lib/database';
 
-export const load: PageServerLoad = async () => {};
+export const load: PageServerLoad = ({ locals }) => {
+	if (locals.user) {
+		throw redirect(303, '/');
+	}
+};
 
 const login: Action = async ({ request, cookies }) => {
 	// Get form data

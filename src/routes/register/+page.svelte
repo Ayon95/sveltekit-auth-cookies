@@ -15,6 +15,10 @@
 		<input type="password" name="password" id="password" required />
 	</div>
 
+	{#if form?.invalid}
+		<p class="error">{form?.message}</p>
+	{/if}
+
 	{#if form?.user}
 		<p class="error">{form?.message}</p>
 	{/if}
